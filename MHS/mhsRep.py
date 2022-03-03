@@ -19,7 +19,7 @@ is_running = True
 startTime = time.time()
 
 while is_running:
-    time_delta = clock.tick(60)/1000.0
+    time_delta = clock.tick(75)/1000.0
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             is_running = False
@@ -43,7 +43,7 @@ while is_running:
     x3 = mhs.movimentHarmonic(200, 1, timeElapsed, faseInicial=-math.pi/2)
     pygame.draw.circle(window_surface, (0, 255, 0), (400 + x3[0], 500), 40, 0)
 
-
+    print(timeElapsed)
     pygame.display.update()
 
  

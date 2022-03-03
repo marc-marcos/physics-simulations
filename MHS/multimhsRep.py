@@ -35,12 +35,12 @@ while is_running:
     timeNow = time.time()
     timeElapsed = time.time() - startTime    
 
-    y = numpy.linspace(100, 500, 10)
-    desphase = numpy.linspace(0, math.pi/2, 10)
+    y = numpy.linspace(50, 550, 30)
+    desphase = numpy.linspace(0, math.pi/2, 30)
 
-    for i in range(10):
-        x = mhs.movimentHarmonic(300, 1, timeElapsed, desphase[i])
-        pygame.draw.circle(window_surface, (0, 255, 0), (400 + x[0], y[i]), 20, 0)
+    for i in range(30):
+        x = mhs.movimentHarmonic(300, 0.4, timeElapsed, desphase[i])
+        pygame.draw.circle(window_surface, (227, 11, 92), (400 + x[0], y[i]), 5, 0)
 
     pygame.display.update()
 
