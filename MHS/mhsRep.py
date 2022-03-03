@@ -1,4 +1,5 @@
 import mhs
+import math
 import pygame, pygame_gui
 import time
 
@@ -33,8 +34,15 @@ while is_running:
     timeNow = time.time()
     timeElapsed = time.time() - startTime    
 
-    x = mhs.movimentHarmonic(300, 1, timeElapsed)
-    pygame.draw.circle(window_surface, (255, 0, 0), (400 + x[0], 300), 40, 0)
+    x1 = mhs.movimentHarmonic(200, 1, timeElapsed)
+    pygame.draw.circle(window_surface, (255, 0, 0), (400 + x1[0], 100), 40, 0)
+
+    x2 = mhs.movimentHarmonic(200, 1, timeElapsed, faseInicial=math.pi/2)
+    pygame.draw.circle(window_surface, (0, 0, 255), (400 + x2[0], 300), 40, 0)
+
+    x3 = mhs.movimentHarmonic(200, 1, timeElapsed, faseInicial=-math.pi/2)
+    pygame.draw.circle(window_surface, (0, 255, 0), (400 + x3[0], 500), 40, 0)
+
 
     pygame.display.update()
 
