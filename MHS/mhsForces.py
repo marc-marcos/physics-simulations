@@ -36,20 +36,26 @@ while is_running:
     timeElapsed = time.time() - startTime    
 
     x = mhs.movimentHarmonic(300, 0.5, timeElapsed)
-    pygame.draw.circle(window_surface, (227, 11, 92), (400 + x[0], 300), 40, 0)
+    pygame.draw.circle(window_surface, (182, 33, 45), (400 + x[0], 300), 40, 0)
 
     maxes = mhs.maxMovimentHarmonic(300, 0.5, timeElapsed)
 
     relVel = x[1]/maxes[0]
 
     if relVel >= 0:
-        pygame.draw.rect(window_surface, (0, 255, 0), (400 + x[0], 375, relVel * 200, 25))
+        pygame.draw.rect(window_surface, (182, 119, 33), (400 + x[0], 375, relVel * 200, 25))
 
     else:
-        pygame.draw.rect(window_surface, (0, 255, 0), (400 + x[0] + relVel * 200, 375, relVel * -200, 25))
-        print(400 + x[0])
-        print(400 + x[0] + relVel * 200)
-        print()
+        pygame.draw.rect(window_surface, (182, 119, 33), (400 + x[0] + relVel * 200, 375, relVel * -200, 25))
+
+
+    relAcc = x[2]/maxes[1] 
+
+    if relAcc >= 0:
+        pygame.draw.rect(window_surface, (23, 127, 117), (400 + x[0], 200, relAcc * 200, 25))
+
+    else:
+        pygame.draw.rect(window_surface, (23, 127, 117), (400 + x[0] + relAcc * 200, 200, relAcc * -200, 25))
 
 
     pygame.display.update()
